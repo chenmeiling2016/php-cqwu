@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a,a:visited,a:hover{
+        text-decoration: none;
+    }
+    div.carousel div.carousel-inner img{
+        width: 100%;
+        height: 410px;
+    }
+    div.main header.item-header{
+        margin: 20px 0;
+        border-bottom: 2px #969696 solid;
+    }
+    div.main header.item-header h3 {
+        display: inline-block;
+        margin: 0 0 -2px 0;
+        padding: 0 5px 0 15px;
+        line-height: 30px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #000a1f;
+        border-bottom: 2px solid #002a84;
+    }
+    div.main header.item-header h3 span {
+        font-size: 14px;
+        color: #002f94;
+    }
+    header.item-header a {
+        font-size: 13px;
+        color: #666;
+    }
+    div.main div.up div.row{
+        margin: 0;
+    }
+    div.main div.up div.col-sm-4{
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+    div.main div.up div.col-sm-4:hover div.panel-heading{
+        background-color:  #5D718E;
+    }
+    div.main div.up div.col-sm-4:hover div.panel-body figcaption{
+        background-color:  #D54248;
+    }
+    div.main div.up div.panel-heading{
+        background-color:  #D54248;
+        border: none;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    div.main div.up div.panel-heading a{
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    div.main div.up div.panel-heading h3{
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    div.main div.up div.panel-body{
+        padding: 0;
+    }
+    div.main div.up figure img{
+        width: 100%;
+    }
+    div.main div.up figcaption{
+        background-color: #5D718E;
+        color: white;
+        padding: 15px;
+    }
+    div.main div.up figcaption p{
+        text-indent: 2em;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    div.main div.up figcaption span{
+        display: block;
+        text-align: right;
+        padding-top: 5px;
+    }
+    div.main div.middle div.media{
+        position: relative;
+        display: block;
+        padding: 10px 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid #b5b5b5;
+        cursor: pointer;
+    }
+    div.main div.middle div.media:hover div.media-left a{
+        background-color: #23527c;
+    }
+    div.main div.middle div.media:hover div.media-body h4{
+        color: #23527c;
+    }
+    div.middle div.media div.media-left a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        background-color: #5A6989;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    div.middle div.media div.media-left a h2{
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+    div.middle div.media div.media-body h4{
+        margin-top: 0;
+        padding-top: 3px;
+        font-size: 15px;
+        color: #737373;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    div.middle div.media div.media-body p{
+        height: 40px;
+        line-height: 20px;
+        color: #858687;
+        text-align: justify;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    div.middle div.part div.media{
+        border-bottom-style: dashed;
+    }
+    div.middle div.media div.media-left span{
+        font-size: 14px;
+        display: block;
+    }
+    div.down div.thumbnail{
+        padding: 2px;
+        border: none;
+        border-top: 1px #EEEEEE solid;
+        border-bottom: 1px #EEEEEE solid;
+    }
+    div.down div.thumbnail:hover{
+        background-color: #5A6989;
+        color: white;
+    }
+    div.down div.thumbnail:hover p{
+        color: white;
+        margin: 0;
+    }
+    .thumbnail .caption{
+        padding: 2px;
+    }
+    div.down div.thumbnail p{
+        color: #909090;
+        border-bottom: 1px white solid;
+        line-height: 30px;
+        font-size: 15px;
+        padding-left: 5px;
+    }
+</style>
+<body>
+<header id="header"></header>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="images/img1.jpg" alt="...">
+        </div>
+        <div class="item">
+            <img src="images/img2.jpg" alt="...">
+        </div>
+        <div class="item">
+            <img src="images/img3.jpg" alt="...">
+        </div>
+        <div class="item">
+            <img src="images/img4.jpg" alt="...">
+        </div>
+        <div class="item">
+            <img src="images/img5.jpg" alt="...">
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="container main">
+    <div class="up">
+        <header class="clearfix item-header">
+            <h3>
+                学校新闻 <span>NEWS</span>
+            </h3>
+            <a href="list.html" class="pull-right">
+                MORE
+            </a>
+        </header>
+        <div class="row" id="news">
+
+        </div>
+    </div>
+    <div class="middle">
+        <div class="row">
+            <div class="col-sm-6">
+                <header class="clearfix item-header">
+                    <h3>
+                        通知公告 <span>NOTICE</span>
+                    </h3>
+                    <a href="#" class="pull-right">
+                        MORE
+                    </a>
+                </header>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">校园交通管制通告</h4>
+                        <p>校内各单位，全体师生：
+                            我校将于2019年3月23日（星期六）上午在红河校区A区校园内举行“校园之春”文化艺术体育活动开幕式暨“三走”主题多彩马拉松活动，活动期间对校园内主干道将实施交通管制，现将相关要求通告如下：
+                        </p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">关于开展2019年学校教职工思想状况问卷调查的通知</h4>
+                        <p>关于开展2019年学校教职工思想状况问卷调查的通知
+                        </p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">关于第七届（2018级）卓越教师教育实验预备班 拟录取学生名教师教育实验预备</h4>
+                        <p>
+                            关于第七届（2018级）卓越教师教育实验预备班 拟录取学生名单公示的通知
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 part">
+                <header class="clearfix item-header">
+                    <h3>
+                        通知公告 <span>ACADEMIC</span>
+                    </h3>
+                    <a href="#" class="pull-right">
+                        MORE
+                    </a>
+                </header>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">健康医疗大数据智能化创新研究与应用</h4>
+                        <p>讲座题目：健康医疗大数据智能化创新研究与应用
+
+                            主 讲 人：马新强
+
+                            主办单位：软件工程学院
+
+                            讲座时间：2019年3月20日星期三下午14:30—16:30
+
+                            讲座地点：红河A校区博文馆101</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">现代民航机场信息技术研究与应用</h4>
+                        <p>讲座题目：现代民航机场信息技术研究与应用
+                            主 讲 人：罗  谦
+                            主办单位：软件工程学院
+                            讲座时间：2019年3月20日（星期三）下午14：30-16:30
+                            讲座地点： 知津楼第九阶梯教室</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <h2 class="media-object">20
+                                <span>2019-03</span>
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">浅谈高等学校科学研究优秀成果奖（人文社会科学）申报校科学研究优秀成</h4>
+                        <p>报告题目：浅谈高等学校科学研究优秀成果奖（人文社会科学）申报技巧
+                            报告人：徐小容
+                            主办单位：科技部
+                            报告时间：2019年3月6日 16：00-17：30
+                            报告地点：恪勤楼612</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="down">
+        <header class="clearfix item-header">
+            <h3>
+                专题网站 <span>TIPICS</span>
+            </h3>
+        </header>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/main_down_1.jpg" alt="...">
+                    <div class="caption">
+                        <p>党的建设</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/main_down_2.jpg" alt="...">
+                    <div class="caption">
+                        <p>思想政治专题网</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/main_down_3.gif" alt="...">
+                    <div class="caption">
+                        <p>创新创业网</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/main_down_4.jpg" alt="...">
+                    <div class="caption">
+                        <p>媒体视角</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer"></footer>
+<template id="temp">
+    <div class="col-sm-4">
+        <a href="detail.html?id={{id}}" target="_blank">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                        <h3 class="panel-title">{{title}}</h3>
+
+                </div>
+                <div class="panel-body">
+                    <figure>
+                        <img src="{{src}}" alt="">
+                        <figcaption>
+                            <p>{{content}}</p>
+                            <span>了解更多详情 &gt;&gt;</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </a>
+    </div>
+</template>
+
+<script src="js/jquery-2.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+    var temp=$('#temp').html();
+    $.getJSON("php/index.php",function (arr) {
+        arr.forEach(function (el) {
+            $('#news').append(temp.replace("{{id}}",el.id).replace("{{title}}",el.title).replace("{{src}}",el.src).replace("{{content}}",el.content))
+        })
+    })
+</script>
+</body>
+</html>

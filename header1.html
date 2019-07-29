@@ -1,0 +1,143 @@
+<div class="top">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">学生</a></li>
+            <li><a href="#">教职工</a></li>
+            <li><a href="#">考生</a></li>
+            <li><a href="#">校友总会</a></li>
+            <li><a href="#">基金会</a></li>
+            <li>
+                <form action="search.html" class="navbar-form visible-lg" role="search" id="form">
+                    <div class="form-group">
+                        <input class="form-control" name="key" pattern="\S+" required>
+                    </div>
+                    <button class="btn btn-link glyphicon glyphicon-search" style="color: #bbb"></button>
+                </form>
+            </li>
+            <li><a href="#" >网上办事大厅</a></li>
+            <li><a href="#" >教务网</a></li>
+            <li class="toggle"><a data-toggle="modal" href="#loginer">登录</a></li>
+            <li class="toggle"><a data-toggle="modal" href="#register">注册</a></li>
+            <li class="toggle hidden"><a id="nicheng" href="##"></a></li>
+            <li class="toggle hidden"><a id="logout" href="##">注销</a></li>
+            <li><a href="#" >图书</a></li>
+            <li><a href="#" >邮箱</a></li>
+        </ul>
+    </div>
+</div>
+<div id="loginer" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请登录</h4>
+            </div>
+            <form id="form_login" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="zh1">用户名：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" class="form-control" name="username" id="zh1"
+                                   pattern="\w{6,10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw1">密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="pwd" id="pw1"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="yzm">验证码：</label>
+                        <div class="col-sm-5 require">
+                            <input type="text" pattern="\d{4}" class="form-control" name="yzm" id="yzm"
+                                   required>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="php/idcode.php" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label id="info" class="col-sm-4 control-label pull-left"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">登录</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="register" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请注册</h4>
+            </div>
+            <form id="form_regist" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="zh2">用户名：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" class="form-control" name="username" id="zh2"
+                                   pattern="\w{6,10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw2">密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="pwd" id="pw2">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw3">确认密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="repwd" id="pw3">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="lc">昵称：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" pattern="\S{2,10}" class="form-control" name="nc" id="lc">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label id="wanner" class="col-sm-4 control-label pull-left"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">注册</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function toggle(){
+        $.getJSON("php/get.php",function (res) {
+            //获取当前用户是否登录
+            if(res['flag']){//用户已经登录，显示昵称和注销选项
+                $('li.toggle').toggleClass('hidden');
+                $('#nicheng').html(`欢迎你：${res['nc']}`);
+            }else {
+                window.location.href='index.html';
+            }
+        });
+    }
+    toggle();
+    $('#logout').click(function () {
+        confirm('您确定要注销？');
+        $.getJSON('php/logout.php',function (res) {
+            if(res)toggle();
+        })
+    })
+</script>

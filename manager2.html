@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        body{
+            padding: 70px 0 50px 0;
+        }
+        div.contant .col-sm-10{
+            overflow: hidden;
+        }
+        div.contant,div.contant .col-sm-10,div.contant .col-sm-10 .panel
+        {
+            height: 100%;
+        }
+        div.contant .col-sm-10 .panel .panel-body{
+            height: calc(100% - 70px);
+            overflow: auto;
+        }
+        div.contant .col-sm-10 .panel .panel-body p{
+           text-indent: 2em;
+            line-height: 30px;
+        }
+        div.contant .col-sm-10 .panel .panel-body img{
+            float: left;
+            margin-right: 20px;
+        }
+        footer{
+            background: #c7ffec;
+            text-align: center;
+            padding: 5px;
+        }
+        footer p span{
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+<div class="nav-bg navbar-fixed-top">
+    <nav class="navbar navbar-default container ">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">学生</a></li>
+                    <li><a href="#">教职工</a></li>
+                    <li><a href="#">考生</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form" action="search.html">
+                            <div class="form-group">
+                                <input type="text" name="key" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-link glyphicon glyphicon-search"></button>
+                        </form>
+                    </li>
+                    <li><a href="#">网上办事大厅</a></li>
+                    <li id="log"><a href="#"data-toggle="modal" data-target="#login">登录</a></li>
+                    <li id="reg"><a href="#" data-toggle="modal" data-target="#regist">注册</a></li>
+                    <li id="nc"><a href="#"></a></li>
+                    <li id="logout"><a href="#">注销</a></li>
+                    <li><a href="#">教务网</a></li>
+                    <li><a href="#">图书</a></li>
+                    <li><a href="#">邮箱</a></li>
+                    <li><a href="#">招聘</a></li>
+                    <li><a href="#">招标</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">旧版</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+<div class=" contant">
+    <div class="col-sm-2">
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                后台管理
+            </a>
+            <a href="#one" class="list-group-item">添加新闻</a>
+            <a href="#two" class="list-group-item" onclick="del_cont()">删除新闻</a>
+            <a href="#three" class="list-group-item">编辑新闻内容</a>
+            <a href="#four" class="list-group-item">更换图片</a>
+            <a href="#five" class="list-group-item">修改密码</a>
+            <a href="#six" class="list-group-item">上传文件</a>
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <div class="panel panel-primary" id="one">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加新闻</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" id="add_form" style="text-align: center">
+                        <div class="form-group">
+                            <label for="inputEmail5" class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-7">
+                                <input type="text" name="title" class="form-control" id="inputEmail5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cont" class="col-sm-2 control-label">内容</label>
+                            <div class="col-sm-7">
+                                <textarea  name="cont" class="form-control" id="cont"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="author" class="col-sm-2 control-label">作者</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="author" id="author">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword8" class="col-sm-2 control-label">图片</label>
+                            <div class="col-sm-7">
+                                <input type="file" name="img" class="form-control" id="inputPassword8">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">添加</button>
+                        <button type="reset" class="btn btn-default reset">重置</button>
+                </form>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>标题</th>
+                            <th>内容</th>
+                            <th>作者</th>
+                            <th>时间</th>
+                            <th>图片</th>
+                        </tr>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary" id="two">
+            <div class="panel-heading">
+                <h3 class="panel-title">删除新闻</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>标题</th>
+                            <th>操作</th>
+                        </tr>
+                        <tbody id="tbody1">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary" id="three">
+            <div class="panel-heading">
+                <h3 class="panel-title">编辑新闻内容</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" id="edit_form" style="text-align: center">
+                    <div class="form-group">
+                        <label for="edit" class="col-sm-2 control-label">请输入需要修改的新闻标题</label>
+                        <div class="col-sm-5">
+                            <input type="text"class="form-control" id="edit">
+                        </div>
+                        <button type="button" class="btn btn-primary col-sm-1" id="search">搜索</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">新闻标题</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="title" class="form-control" id="title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cont1" class="col-sm-2 control-label">新闻内容</label>
+                        <div class="col-sm-7">
+                            <textarea  name="cont" class="form-control" id="cont1"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="author1" class="col-sm-2 control-label">作者</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="author" id="author1">
+                            <input type="hidden" class="form-control" name="id" id="id">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">修改</button>
+                    <button type="reset" class="btn btn-default reset">重置</button>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary" id="four">
+            <div class="panel-heading">
+                <h3 class="panel-title">更换图片</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" id="img_form" style="text-align: center">
+                    <div class="form-group">
+                        <label for="edit" class="col-sm-2 control-label">请输入需要更换的标题</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="change">
+                        </div>
+                        <button type="button" class="btn btn-primary col-sm-1" id="search1">搜索</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">新闻标题</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="title1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cont1" class="col-sm-2 control-label">原图片</label>
+                        <div class="col-sm-7">
+                            <img src="" id="old_img" width="200">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="author1" class="col-sm-2 control-label">替换为</label>
+                        <div class="col-sm-7">
+                            <input type="file" class="form-control" name="new_img" id="new_img">
+                            <input type="hidden" class="form-control" name="id" id="id1">
+                            <input type="hidden" class="form-control" name="origin" id="origin">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">更换</button>
+                    <button type="reset" class="btn btn-default reset">重置</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="panel panel-primary" id="five">
+            <div class="panel-heading">
+                <h3 class="panel-title">修改密码</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal text-center" id="pwd_form">
+                        <div class="form-group">
+                            <label for="old_pwd" class="col-sm-2 control-label">原密码</label>
+                            <div class="col-sm-7">
+                                <input type="password" name="old_pwd" class="form-control" id="old_pwd" placeholder="请输入原密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_pwd" class="col-sm-2 control-label">新密码</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" name="new_pwd" id="new_pwd" placeholder="请输入新密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="renew_pwd" class="col-sm-2 control-label">确认密码</label>
+                            <div class="col-sm-7">
+                                <input type="text"class="form-control" id="renew_pwd" placeholder="请再输入新密码">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">修改</button>
+                        <button type="reset" class="btn btn-default">重置</button>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary" id="six">
+            <div class="panel-heading">
+                <h3 class="panel-title">上传文件</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal text-center" id="file_form">
+                        <div class="form-group">
+                            <label for="file_title" class="col-sm-2 control-label">文件标题</label>
+                            <div class="col-sm-7">
+                                <input type="text" name="title" class="form-control" id="file_title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file" class="col-sm-2 control-label">选择文件</label>
+                            <div class="col-sm-7">
+                                <input type="file" class="form-control" name="file" id="file">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">上传</button>
+                        <button type="reset" class="btn btn-default">重置</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="navbar-fixed-bottom">
+    <p><span>京ICP备11008151号</span> 京公网安备11010802014853</p>
+</footer>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $.getJSON("php/session.php", function (data) {
+        if (!data) {
+            window.location.href = 'index.html';
+        }else {
+            $('#log').hide();
+            $('#reg').hide();
+            $('#nc').show();
+            $('#logout').show();
+            $('#nc a').html('欢迎您：'+data);
+        }
+    })
+    $('#logout').click(function () {
+        $.getJSON('php/logout.php',function (res) {
+            if (res) {
+                $('#nc').hide();
+                $('#logout').hide();
+                $('#log').show();
+                $('#reg').show();
+                window.location.href = 'index.html';
+            }
+        })
+    })
+    $('#add_form').submit(function () {
+        var data=new FormData(this);
+        $.ajax({
+            url: "php/add.php",
+            type: "post",
+            data: data,
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (res, textStatus) {
+                // console.log(res);
+                if(res.flag===1){
+                    alert("数据添加成功");
+                    $('#tbody').prepend(`<tr><td>${res.cols[0]}</td>
+                        <td>${res.cols[1]}</td>
+                        <td>${res.cols[2]}</td>
+                        <td>${res.cols[3]}</td>
+                        <td><img src="${res.cols[4]}" width="100"></td></tr>`)
+                }else if(res.flag===2){
+                    alert("数据添加失败")
+                }else {
+                    alert("图片格式不符合要求")
+                }
+            },
+            error: function () {
+                alert("数据请求失败，请检查网络等！")
+            }
+        });
+        return false;
+    });
+    $('#file_form').submit(function () {
+        var data1=new FormData(this);
+        $.ajax({
+            url: "php/file.php",
+            type: "post",
+            data: data1,
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log(res);
+                if(res===1){
+                    alert("文件添加成功");
+                }else if(res===2){
+                    alert("图片格式不符合要求")
+                }else {
+                    alert("文件添加失败")
+                }
+            },
+            error: function () {
+                alert("数据请求失败，请检查网络等！")
+            }
+        });
+        return false;
+    });
+    function del_cont(){
+        $('#tbody1').html('');
+        $.getJSON('php/alldata.php',function (res) {
+            res.forEach(function (el) {
+                $('#tbody1').append(`<tr><td>${el.title}</td>
+                        <td><button id="del_btn" data-i="${el.id}">删除</button></td>
+                        </tr>`)
+            });
+        })
+    }
+    $('#tbody1').on('click','button',function () {
+        if (confirm('真滴要删除吗')){
+            $.getJSON('php/del.php?id='+$(this).data('i'),function (res) {
+                // console.log(res);
+                del_cont();
+            })
+        }
+    })
+    $('#search').click(function () {
+        $.getJSON('php/getone.php?title='+$('#edit').val(),function (res) {
+            $('#id').val(res.id);
+            $('#title').val(res.title);
+            $('#cont1').val(res.cont);
+            $('#author1').val(res.author);
+        })
+    })
+    $('#edit_form').submit(function () {
+        var edit_data=decodeURI($(this).serialize());
+        $.getJSON('php/edit.php',edit_data,function (res) {
+            alert('修改成功');
+        });
+        return false;
+    })
+    $('#search1').click(function () {
+        $.getJSON('php/getone.php?title='+$('#change').val(),function (res) {
+            $('#id1').val(res.id);
+            $('#title1').val(res.title);
+            $('#old_img').prop('src',res.img);
+            $('#origin').val(res.img);
+        })
+    })
+    $('#img_form').submit(function () {
+        var data=new FormData(this);
+        $.ajax({
+            url: "php/change_img.php",
+            type: "post",
+            data: data,
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log(res);
+                if(res===1||res===3){
+                    alert("图片修改成功");
+                }else if(res===2){
+                    alert("数据添加失败")
+                }else {
+                    alert("图片格式不符合要求")
+                }
+            },
+            error: function () {
+                alert("数据请求失败，请检查网络等！")
+            }
+        });
+        return false;
+    })
+    $('#pwd_form').submit(function () {
+        if($('#renew_pwd').val()!==$('#new_pwd').val()){
+            alert('两次密码不一致');
+        }else {
+            $.post('php/change_pwd.php',$(this).serialize(),function (res) {
+                if(res===1){
+                    alert('修改成功');
+                }else {
+                    alert('原密码有有误');
+                }
+            },'json');
+        }
+
+        return false;
+    })
+</script>
+</html>

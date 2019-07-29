@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a,a:visited{
+    text-decoration: none;
+}
+header div.top{
+    height: 40px;
+    background-color: #012269;
+}
+header div.top li a {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 9px;
+    color: #c7cad6;
+    font-size: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+header div.top li input{
+    width: 134px;
+    height: 24px;
+    /*margin-top: 8px;*/
+    padding: 0 8px;
+    border: none;
+    line-height: 12px;
+    box-sizing: border-box;
+    /*background: url(../images/input_bg.png) center no-repeat;*/
+    margin-left: 30px;
+}
+header div.top li button{
+    height: 24px;
+    color: #c7cad6;
+    border: none;
+    outline: none;
+    vertical-align: -2px;
+    background-color: transparent;
+}
+header div.top .nav>li>a:hover,header div.top .nav>li>a:focus {
+    text-decoration: none;
+    background-color: unset;
+    color: white;
+}
+header div.middle{
+    background: url("../images/top_bg.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+header div.middle div.nav-logo{
+    height: 110px;
+    padding: 10px;
+    background: url("../images/top_icon.png") no-repeat right -20px;
+}
+header div.middle div.nav-logo a img{
+    vertical-align: center;
+}
+header div.down {
+    background-color: rgba(3,43,131,.3)!important;
+}
+header div.down ul.navbar-down>li>a{
+    color: white;
+    font-size: 15px;
+    padding: 13px 22px!important;
+}
+header div.down ul.navbar-down>li:hover>a{
+    background-color: #4197d0 !important; color: white;
+}
+header div.down ul div.dropdown-menu{
+    display: none;
+    min-width: unset;
+    background-color: rgba(234, 228, 219, 0.89);
+}
+header div.down ul.navbar-down>li:hover div.dropdown-menu{
+    display: block;
+}
+header div.down ul div.dropdown-menu a{
+    padding: 15px 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+header div.down ul div.dropdown-menu a:hover{
+    color: #2c59b1;
+}
+div.carousel div.carousel-inner img{
+    width: 100%;
+    height: 410px;
+}
+div.main header.item-header{
+    margin: 20px 0;
+    border-bottom: 2px #969696 solid;
+}
+div.main header.item-header h3 {
+    display: inline-block;
+    margin: 0 0 -2px 0;
+    padding: 0 5px 0 15px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #000a1f;
+    border-bottom: 2px solid #002a84;
+}
+div.main header.item-header h3 span {
+    font-size: 14px;
+    color: #002f94;
+}
+header.item-header a {
+    font-size: 13px;
+    color: #666;
+}
+
+footer{
+    background: url("../images/top_bg.jpg") no-repeat;
+    background-size: 100% 100%;
+    color: white;
+}
+footer div.up{
+    padding-top: 30px;
+}
+footer a{
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #ff6447;
+    text-decoration: none;
+}
+footer p.car{
+    margin-top: 20px;
+}
+footer h4{
+    line-height: 34px;
+    border-bottom: 1px white solid;
+}
+footer h4 span{
+    display: inline-block;
+    line-height: 34px;
+    border-bottom: 1px white solid;
+}
+footer div.wx-img img{
+    width: 100%;
+}
+footer div.copyright{
+    background-color: #041438;
+    line-height: 42px;
+    color: #6D7180;
+}
+@media (min-width: 1200px){
+    .container {
+        width: 1050px;
+    }
+}

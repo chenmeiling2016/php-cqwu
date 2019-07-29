@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a,a:visited{
+        text-decoration: none;
+    }
+    main div.row{
+        margin: 20px 0;
+    }
+    main div.row div.left{
+        line-height: 37px;
+        padding: 0;
+    }
+    main div.panel{
+        border: none;
+        margin: 0;
+    }
+    main div.row div.public div.panel-heading{
+        line-height: 37px;
+        background-color: #EBEBEB;
+        padding: 0;
+        border: none;
+    }
+    main div.row div.public div.panel-heading a{
+        color: #8C97B2;
+        text-decoration: none;
+    }
+    main div.row div.public div.panel-heading a:hover{
+        color: #084C9F;
+    }
+    main div.row div.public div.panel-heading h3{
+        display: inline-block;
+        color: white;
+        background-color: #084C9F;
+        line-height: 37px;
+        padding: 0 10px;
+    }
+    main div.row div.public div.panel-heading h3:after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 18px transparent solid;
+        border-left-color: #084C9F;
+        border-bottom-color: #084C9F;
+        margin-left: 10px;
+        margin-top: 1px;
+        line-height: 35px;
+    }
+    main div.row div.public div.panel-heading a{
+        padding: 0 10px;
+    }
+    main div.public div.panel-body{
+        padding: 0;
+    }
+    main div.public div.panel-body .list-group{
+        margin: 0;
+    }
+    main div.public div.panel-body .list-group-item {
+        border: none;
+        padding: 8px;
+        border-bottom: 1px #CCCCCC dashed;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    main div.public div.panel-body .list-group-item:hover{
+        border-bottom: 1px #064d9f dashed;
+    }
+    main div.public div.panel-body .list-group-item:hover a span ,
+    main div.public div.panel-body .list-group-item:hover p{
+        color: #064d9f;
+    }
+    main div.public div.panel-body .list-group-item a{
+        display: flex;
+        line-height: 30px;
+        text-decoration: none;
+        color: black;
+    }
+    main div.public div.panel-body .list-group-item span:first-child{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        width: 75%;
+    }
+    main div.public div.panel-body .list-group-item span:last-child{
+        width: 25%;
+        text-align: right;
+        color: #9696B0;
+    }
+    main div.public div.panel-body .list-group-item:first-child,
+    main div.public div.panel-body .list-group-item:last-child{
+        border-radius: unset;
+    }
+    main div.right  div.carousel-inner{
+        width: 100%;
+        height: 366px;
+    }
+    main div.media-row .media{
+        display: flex;
+    }
+    main div.media-row .media .media-left{
+        width: 80px;
+        height: 20px;
+        margin-right: 10px;
+        padding-top: 8px;
+    }
+    main div.media-row .media .media-body{
+        flex: 1;
+    }
+    main div.media-row .media .media-body p{
+        line-height: 30px;
+        margin: 0;
+    }
+    main div.media-row .media .media-left img{
+        width: 100%;
+        height: 100%;
+    }
+    main div.media-row div.middle{
+        margin: 0;
+        padding: 0;
+    }
+    main div.media-row div.middle li.list-group-item{
+        padding: 0;
+    }
+    main div.media-row div.middle li.list-group-item:hover h3{
+        color: #064d9f;
+    }
+    main div.media-row div.middle li.list-group-item:hover p{
+        color: #AEAEAE;
+    }
+    main div.media-row div.middle .list-group-item a{
+        display: block;
+    }
+    main div.media-row div.middle .list-group-item a h3{
+        display: flex;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    main div.media-row div.middle .list-group-item a h3 b{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        width: 75%;
+    }
+    main div.media-row div.middle .list-group-item a span{
+        text-align: right;
+        font-weight: normal;
+    }
+    main div.media-row div.middle .list-group-item a p{
+        display: block;
+        color: #AEAEAE;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-indent: 2em;
+        line-height: 22px;
+    }
+    main div.media-row div.right .list-group-item a{
+        display: flex;
+    }
+    main div.media-row div.right .list-group-item a p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        width: 75%;
+    }
+    main div.man div.panel-body{
+        margin-bottom: 0;
+    }
+    main div.man div.col-md-3{
+        padding: 0 10px;
+    }
+    main div.man div.col-md-3 div.thumbnail{
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    main div.man div.col-md-3 div.caption{
+        background-color: #EBEBEB;
+    }
+    main div.man div.col-md-3 div.caption h3{
+        margin: 0;
+        font-size: 14px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+
+    }
+    main div.man div.thumbnail:hover {
+        box-shadow: 1px 1px 5px #0098ed;
+    }
+    #media img{
+        width: 70px;
+        height: 47px;
+    }
+    #media p{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+</style>
+<body>
+<header id="header"></header>
+<main class="container">
+    <div class="row">
+        <div class="col-md-5 public">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">热点聚焦</h3>
+                    <a href="#" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">学校召开党委常委会专题学习习近平总书记在学校思想政总书记在学校思</span>
+                                <span class="all-time ">2019-03-19</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">我校教师在重庆市高等教育学会优秀论文评选活动中荣获论文评选活动中</span>
+                                <span class="all-time">2019-03-12</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">学校召开2019年脱贫攻坚工作推进会</span>
+                                <span class="all-time">2019-03-11</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">我校获得永川区人社局职业培训机构资质</span>
+                                <span class="all-time">2019-03-05</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">我校国家级科研平台建设再获新突破</span>
+                                <span class="all-time">2019-02-28</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">学校召开2018--2019学年第二学期开学工作会</span>
+                                <span class="all-time">2019-02-24</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="all-title">我校男子篮球队在第21届CUBA中国大学生篮球联赛1届CUBA中国大学生篮</span>
+                                <span class="all-time">2019-01-28</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 right">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="images/news_1.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="images/news_2.jpg" alt="...">
+                    </div>
+                    <div class="item active">
+                        <img src="images/news_3.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="images/news_4.jpg" alt="...">
+                    </div>
+                    <div class="item active">
+                        <img src="images/news_5.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="images/news_6.jpg" alt="...">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row media-row">
+        <div class="col-md-4 public">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">媒体文理</h3>
+                    <a href="listmore.html" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group" id="media">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 public middle">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">校内要闻</h3>
+                    <a href="#" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h3><b>学校党委书记孙泽平为第36届中小学校长培训班作专题报告</b><span class="all-time ">2019-03-19</span></h3>
+                                <p>
+                                    3月20日上午，我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h3><b>学校党委书记孙泽平为第36届中小学校长培训班作专题报告</b><span class="all-time ">2019-03-19</span></h3>
+                                <p>
+                                    3月20日上午，我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h3><b>学校党委书记孙泽平为第36届中小学校长培训班作专题报告</b><span class="all-time ">2019-03-19</span></h3>
+                                <p>
+                                    3月20日上午，我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h3><b>学校党委书记孙泽平为第36届中小学校长培训班作专题报告</b><span class="all-time ">2019-03-19</span></h3>
+                                <p>
+                                    3月20日上午，我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h3><b>学校党委书记孙泽平为第36届中小学校长培训班作专题报告</b><span class="all-time ">2019-03-19</span></h3>
+                                <p>
+                                    3月20日上午，我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 public right">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">院系动态</h3>
+                    <a href="#" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default" style="margin-top: 20px">
+                <div class="panel-heading">
+                    <h3 class="panel-title">联系我们</h3>
+                    <a href="#" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <p>
+                                    我校党委书记孙泽平在培训学院114会议室为第36届中小学校长培训班作了题为“拥抱新时代  践行新思想  实现新作为”党的十九大精神专题报告。
+                                </p>
+                                <span class="all-time ">[03-19]</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row man">
+        <div class="col-md-12 public">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文理人物</h3>
+                    <a href="#" class="pull-right">更多&gt;&gt;</a>
+                </div>
+                <div class="panel-body row">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="images/news_12.jpg" alt="...">
+                            <div class="caption">
+                                <h3>中国工程院院士、我校名誉校长</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="images/news_13.jpg" alt="...">
+                            <div class="caption">
+                                <h3>数学与财经学院院长 施武杰教授</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="images/news_14.jpg" alt="...">
+                            <div class="caption">
+                                <h3>创新靶向药物国际研究院院长</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="images/news_15.jpg" alt="...">
+                            <div class="caption">
+                                <h3>软件工程学院教师 王俊祥</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<footer id="footer"></footer>
+<template id="temp">
+    <li class="list-group-item">
+        <a href="detail.html?id={{id}}">
+            <div class="media list-inline">
+                <div class="media-left">
+                    <img class="media-object" src="{{src}}" alt="...">
+                </div>
+                <div class="media-body">
+                    <p>{{content}}</p>
+                </div>
+            </div>
+        </a>
+    </li>
+</template>
+<script src="js/jquery-2.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+    var temp=$('#temp').html();
+    function show(){
+        $.getJSON('php/list.php',function (res) {
+            $.each(res,function (i,row) {
+                $('#media').append(temp.replace('{{id}}',row.id).replace('{{src}}',row.src).replace('{{content}}',row.content))
+            })
+        })
+    }
+    show();
+</script>
+</body>
+</html>

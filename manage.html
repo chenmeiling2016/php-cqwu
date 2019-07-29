@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/public.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        body{
+            padding: 70px 0 30px 0;
+            box-sizing: border-box;
+        }
+        main{
+            overflow: hidden;
+        }
+        main,main div.row,main div.row div.my_body,
+        main div.row div.my_body{
+            height: 100%;
+        }
+        div.panel{
+            height: calc(100% - 30px);
+        }
+
+        aside.my_nav{
+            position: fixed;
+            top: 70px;
+            left: 10px;
+            width: calc(100% / 6 - 40px);
+        }
+        div.my_body div.panel div.panel-body{
+            height: calc(100% - 38px);
+            overflow-y: auto;
+        }
+        .nav-pills>li>a{
+            border-radius: 5px 5px 0 0 ;
+        }
+        td>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="navbar-fixed-top"></header>
+<aside class="panel panel-primary my_nav">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">管理控制台</a></li>
+        <li><a href="#one">添加新闻</a></li>
+        <li><a href="#two">删除新闻</a></li>
+        <li><a href="#three">编辑新闻</a></li>
+        <li><a href="#four">更换图片</a></li>
+        <li><a href="#five">修改密码</a></li>
+    </ul>
+</aside>
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2 my_body">
+            <div class="panel panel-primary" id="one">
+                <div class="panel-heading">
+                    <h3 class="panel-title">添加新闻</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="form1" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="title">标题：</label>
+                            <div class="col-sm-9 require">
+                                <input type="text" class="form-control" name="title" id="title"
+                                       pattern="\S{4,60}" required>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="author">作者：</label>
+                            <div class="col-sm-9 require">
+                                <input type="text" class="form-control" name="author" id="author"
+                                       pattern="\S{2,10}" required>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="content">内容：</label>
+                            <div class="col-sm-9 require">
+                                <textarea class="form-control" name="content" id="content" rows="8"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="image">图片：</label>
+                            <div class="col-sm-9 require">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                                <input type="file" class="form-control" name="image" id="image">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-3">
+                                <button class="btn btn-default submit">添加</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="reset" class="btn btn-default reset">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <td style="width: 20%">标题</td>
+                        <td style="width: 10%">作者</td>
+                        <td style="width: 50%">内容</td>
+                        <td style="width: 20%">图片</td>
+                        </thead>
+                        <tbody id="tbody1">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel panel-primary" id="two">
+                <div class="panel-heading">
+                    <h3 class="panel-title">删除新闻</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered text-center" id="table2">
+                        <thead>
+                        <td style="width: 80%">标题</td>
+                        <td style="width: 20%">操作</td>
+                        </thead>
+                        <tbody id="tbody2">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel panel-primary" id="three">
+                <div class="panel-heading">
+                    <h3 class="panel-title">编辑新闻</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="edit_form" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="title">请输入想要修改的标题：</label>
+                            <div class="col-sm-6 require">
+                                <input id="edit" type="text" class="form-control" name="title"
+                                       pattern="\S{4,60}" required>
+                            </div>
+                            <button id="search" type="button" class="btn btn-primary glyphicon glyphicon-search"></button>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="title1">标题：</label>
+                            <div class="col-sm-9 require">
+                                <input id="title1" type="text" class="form-control" name="edit_title"
+                                       pattern="\S{4,60}" required>
+                                <input id="edit_id" class="hidden" name="edit_id">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="author1">作者：</label>
+                            <div class="col-sm-9 require">
+                                <input id="author1" type="text" class="form-control" name="edit_author"
+                                       pattern="\S{2,10}" required>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="content1">内容：</label>
+                            <div class="col-sm-9 require">
+                                <textarea id="content1" class="form-control" name="edit_content" rows="8"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-3">
+                                <button class="btn btn-default submit">确认</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="reset" class="btn btn-default reset">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary" id="four">
+                <div class="panel-heading">
+                    <h3 class="panel-title">更换图片</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="img_form" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="title">请输入想要修改的标题：</label>
+                            <div class="col-sm-6 require">
+                                <input id="edit_img" type="text" class="form-control" name="title"
+                                       pattern="\S{4,60}" required>
+                            </div>
+                            <button id="search_img" type="button" class="btn btn-primary glyphicon glyphicon-search"></button>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-3 control-label" for="title1">标题：</label>
+                            <div class="col-sm-9 require">
+                                <input id="title2" type="text" class="form-control" name="edit_title"
+                                       pattern="\S{4,60}" required>
+                                <input id="img_id" class="hidden" name="img_id">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="old_img" class="col-sm-2 control-label">原图片:</label>
+                            <div class="col-sm-7">
+                                <img src="images/main_1.jpg" id="old_img" width="200">
+                                <input type="hidden" class="form-control" name="origin" id="origin">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="author1" class="col-sm-2 control-label">替换为:</label>
+                            <div class="col-sm-7">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                                <input type="file" class="form-control" name="image" id="new_image">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-3">
+                                <button class="btn btn-default submit">确认</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="reset" class="btn btn-default reset">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary" id="five">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改密码</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="pwd_form" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <div class="form-group has-feedback">
+                            <label for="old_pwd" class="col-sm-2 control-label">原密码</label>
+                            <div class="col-sm-7">
+                                <input type="password" name="old_pwd" class="form-control" id="old_pwd" placeholder="请输入原密码">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="new_pwd" class="col-sm-2 control-label">新密码</label>
+                            <div class="col-sm-7">
+                                <input type="password" name="new_pwd" class="form-control" id="new_pwd" placeholder="请输入原密码">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="re_pwd" class="col-sm-2 control-label">新密码</label>
+                            <div class="col-sm-7">
+                                <input type="password" name="re_pwd" class="form-control" id="re_pwd" placeholder="请输入原密码">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-3">
+                                <button class="btn btn-default submit">确认</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="reset" class="btn btn-default reset">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer id="footer" class="navbar-fixed-bottom"></footer>
+<script src="js/jquery-2.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('#header').load('header1.html');
+    $('#footer').load('footer1.html');
+    $.getJSON("php/get.php",function (res) {
+        //获取当前用户是否登录
+        if(!res['flag']){//用户未登录，返回首页
+            window.location.href = 'index.html';
+        }
+    });
+    $('#form1').submit(function (e) {
+        e.preventDefault();
+        var data=new FormData(this);//获取非文本类的数据
+        $.ajax({
+            url:"php/add.php",//处理页面的路径
+            data:data,//通过json格式将一组数据传过去
+            type:"post",//数据的提交和传递方式，最好用POST,用POST也行
+            dataType:"json",//页面返回值的类型，共有三种：TEXT,JSON,XML可选
+            cache:false,
+            contentType:false,
+            processData:false,
+            success:function(res){//回调函数：如果ajax调用成功，就执行这个success后面的函数，(data)当做参数返回过来
+                if (res.flag===1){
+                    alert('上传成功！');
+                } else if(res.flag===2){
+                    alert('网络或其他未知错误，请重试！')
+                }else{
+                    alert('图片格式错误，请重试！')
+                }
+                $('#tbody1').append( `<tr><td>${res.detail[0]}</td><td>${res.detail[1]}</td>
+<td>${res.detail[2]}</td><td><img src="${res.detail[3]}"></img></td></tr>`);
+            },
+            error: function () {
+                alert("error")
+            }
+        });
+    });
+    function show(){
+        $('#tbody2').html('');
+        $.getJSON('php/getall.php',function (res) {
+            res.forEach(function (el) {
+                $('#tbody2').append( `<tr><td>${el.title}</td>
+<td><button class="btn btn-default del" data-i="${el.id}">删除</button></td></tr>`);
+            })
+        });
+    }
+    show();
+    $('#tbody2').on('click','button',function () {
+        if (confirm('真滴要删除吗')){
+            $.getJSON('php/del.php?id='+$(this).data('i'),function (res) {
+                if (res){
+                    alert('删除成功!');
+                    show();
+                }
+                else
+                    alert('删除失败，请重试！');
+            })
+        }
+    });
+    $('#search').click(function () {
+        $.getJSON('php/getone.php?title='+$('#edit').val(),function (res) {
+            if (res.flag){
+                $('#edit_id').val(res.data.id);
+                $('#title1').val(res.data.title);
+                $('#content1').val(res.data.content);
+                $('#author1').val(res.data.author);
+            }else {
+                alert('该新闻不存在！');
+            }
+
+        })
+    });
+    $('#edit_form').submit(function (e) {
+        e.preventDefault();
+        var data=decodeURI($(this).serialize());//对 encodeURI() 函数编码过的 URI 进行解码
+        $.getJSON('php/edit.php',data,function (res) {
+            if (res)
+                alert('修改成功!');
+            else
+                alert('修改失败，请重试！');
+        })
+    });
+    $('#search_img').click(function () {
+        $.getJSON('php/searchimg.php?title='+$('#edit_img').val(),function (res) {
+            if (res.flag){
+                $('#img_id').val(res.data.id);
+                $('#title2').val(res.data.title);
+                $('#old_img').attr('src',res.data.src);//修改图片路径
+                $('#origin').val(res.data.src)
+            }else {
+                alert('该新闻不存在！');
+            }
+        })
+    });
+    $('#img_form').submit(function (e) {
+        e.preventDefault();
+        var data=new FormData(this);//获取非文本类的数据
+        $.ajax({
+            url:"php/change_img.php",//处理页面的路径
+            data:data,//通过json格式将一组数据传过去
+            type:"post",//数据的提交和传递方式，最好用POST,用POST也行
+            dataType:"json",//页面返回值的类型，共有三种：TEXT,JSON,XML可选
+            cache:false,
+            contentType:false,
+            processData:false,
+            success:function(res){//回调函数：如果ajax调用成功，就执行这个success后面的函数，(data)当做参数返回过来
+                if (res.flag===1){
+                    alert('修改图片成功！');
+                } else if(res.flag===2){
+                    alert('网络或其他未知错误，请重试！')
+                }else{
+                    alert('图片格式错误，请重试！')
+                }
+            },
+            error: function () {
+                alert("error")
+            }
+        });
+    });
+    $('#pwd_form').submit(function (e) {
+        e.preventDefault();
+        var data=$(this).serialize();
+        $.getJSON('php/edit_pwd.php',data,function (res) {
+            if (res===1)
+                alert('修改成功!');
+            else if (res===2)
+                alert('两次密码不一致，请重试！');
+            else(res===3)
+                alert('原密码错误，请重试！');
+        })
+    })
+</script>
+</body>
+</html>

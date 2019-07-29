@@ -1,0 +1,276 @@
+<div class="top">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">学生</a></li>
+            <li><a href="#">教职工</a></li>
+            <li><a href="#">考生</a></li>
+            <li><a href="#">校友总会</a></li>
+            <li><a href="#">基金会</a></li>
+            <li>
+                <form action="search.html" class="navbar-form visible-lg" role="search" id="form">
+                    <div class="form-group">
+                        <input class="form-control" name="key" pattern="\S+" required>
+                    </div>
+                    <button class="btn btn-link glyphicon glyphicon-search" style="color: #bbb"></button>
+                </form>
+            </li>
+            <li><a href="#" >网上办事大厅</a></li>
+            <li><a href="#" >教务网</a></li>
+            <li class="toggle"><a data-toggle="modal" href="#loginer">登录</a></li>
+            <li class="toggle"><a data-toggle="modal" href="#register">注册</a></li>
+            <li class="toggle hidden"><a id="nicheng" href="##"></a></li>
+            <li class="toggle hidden"><a id="logout" href="##">注销</a></li>
+            <li><a href="#" >图书</a></li>
+        </ul>
+    </div>
+</div>
+<div class="middle">
+    <div class="container nav-logo">
+        <a href="#">
+            <img class="hidden-xs" src="images/logo3.png" alt="">
+        </a>
+    </div>
+    <div class="down">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-down">
+                <li>
+                    <a href="#" class="dropdown-link">学校概况</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#">学校简介</a></li>
+                            <li><a href="#">发展历程</a></li>
+                            <li><a href="#">现任领导</a></li>
+                            <li><a href="#">组织机构</a></li>
+                            <li><a href="#">学校标识</a></li>
+                            <li><a href="#">校园风光</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">院系设置</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#" >文化与传媒学院</a></li>
+                            <li><a href="#" >数学与财经学院</a></li>
+                            <li><a href="#" >材料与化工学院</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">人才培养</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#" >本科生教育</a></li>
+                            <li><a href="#" >研究生教育</a></li>
+                            <li><a href="#" >留学生教育</a></li>
+                            <li><a href="#" >继续教育</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">科学研究</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#">科研机构</a></li>
+                            <li><a href="#" >科研管理</a></li>
+                            <li><a href="#" >学科建设</a></li>
+                            <li><a href="#">学术期刊</a></li>
+                            <li><a href="#" >重庆科技资源共享平台</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">招生就业</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#" >招生政策</a></li>
+                            <li><a href="#">专业目录</a></li>
+                            <li><a href="#">招生计划</a></li>
+                            <li><a href="#">历年分数</a></li>
+                            <li><a href="#">录取查询</a></li>
+                            <li><a href="#" >新生通道</a></li>
+                            <li><a href="#" >招生信息网</a></li>
+                            <li><a href="#" >就业信息网</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">校园文化</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#">学生社团</a></li>
+                            <li><a href="#" >教工之家</a></li>
+                            <li><a href="#">品牌活动</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">合作交流</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#" >国际交流合作</a></li>
+                            <li><a href="#" >内地交流合作</a></li>
+                            <li><a href="#" >港澳台事务</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-link">信息公开</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#">一周会议通知</a></li>
+                            <li><a href="#">领导机构</a></li>
+                            <li><a href="#">实施办法</a></li>
+                            <li><a href="#">指南与目录</a></li>
+                            <li><a href="#">年度报告</a></li>
+                            <li><a href="#">本科教学质量报告</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="loginer" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请登录</h4>
+            </div>
+            <form id="form_login" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="zh1">用户名：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" class="form-control" name="username" id="zh1"
+                                   pattern="\w{6,10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw1">密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="pwd" id="pw1"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="yzm">验证码：</label>
+                        <div class="col-sm-5 require">
+                            <input type="text" pattern="\d{4}" class="form-control" name="yzm" id="yzm"
+                                   required>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="php/idcode.php" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label id="info" class="col-sm-4 control-label pull-left"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">登录</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="register" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请注册</h4>
+            </div>
+            <form id="form_regist" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="zh2">用户名：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" class="form-control" name="username" id="zh2"
+                                   pattern="\w{6,10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw2">密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="pwd" id="pw2">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="pw3">确认密码：</label>
+                        <div class="col-sm-9 require">
+                            <input type="password" pattern="\w{6,10}" class="form-control" name="repwd" id="pw3">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label" for="lc">昵称：</label>
+                        <div class="col-sm-9 require">
+                            <input type="text" pattern="\S{2,10}" class="form-control" name="nc" id="lc">
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label id="wanner" class="col-sm-4 control-label pull-left"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">注册</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function toggle(){
+        $.getJSON("php/get.php",function (res) {
+            //获取当前用户是否登录
+            if(res['flag']){//用户已经登录，显示昵称和注销选项
+                $('li.toggle').toggleClass('hidden');
+                $('#nicheng').html(`欢迎你：${res['nc']}`);
+            }
+        });
+    }
+    toggle();
+    $('#form_login').submit(function (e) {/*登录*/
+        e.preventDefault();/*阻止表单默认事件，页面全局刷新*/
+        var data=$('#form_login').serialize();/*将表单里的数据包装起来*/
+        $.getJSON('php/login.php',data,function (res) {
+            /*data：将表单里的数据传给php，回调函数接受php返回来的值*/
+            if(res==3){//用户名、密码、验证码都输入正确
+                toggle();/*修改首页选项菜单*/
+                $('#loginer').modal('hide');/*关闭模态框*/
+            }else if(res==2){
+                $('#info').html('用户名或密码有误')
+            }else {
+                $('#info').html('验证码有误')
+            }
+        })
+    });
+    $('#logout').click(function () {
+        confirm('确定要注销？');
+        $.getJSON('php/logout.php',function (res) {
+            if(res)$('li.toggle').toggleClass('hidden');;
+        })
+    })
+    $('#form_regist').submit(function (e) {
+        e.preventDefault();
+        var data=$('#form_regist').serialize();
+        $.getJSON('php/regist.php',data,function (res) {
+            if(res==3){
+                toggle();
+                $('#register').modal('hide');
+            }else if (res==2) {
+                $('#wanner').html('两次密码不一致，请重试！')
+            }else if (res==1) {
+                $('#wanner').html('用户名冲突，请重试！')
+            }
+        })
+    });
+</script>
